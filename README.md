@@ -1,4 +1,4 @@
-# xMLC
+# MLC
 Machine Learning Control.
 
 
