@@ -88,4 +88,7 @@ The main folder should contain the following folders and files:
 - *ODE_Solvers/* contains other functions such ODE solvers
 - *Plant/* contains all the problems and associated parameters. One folder for each problem. Default parameters are in *MLC_tools/*.
 - *Compatibility/* contains functions and scripts for MATLAB/Octave compatibility.
-- *save_runs/* contains the savings.
+- *save_runs/* contains the savings.   
+
+Example and some theory you can see Example.md   
+If any bug and qusetion please connect 19s053048@stu.hit.edu.cn   
