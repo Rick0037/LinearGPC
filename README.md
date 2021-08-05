@@ -89,5 +89,7 @@ mlc.load_matlab('NameOfMyRun');
 - *ODE_Solvers/* 包含了一些求解微分方程的求解器.
 - *Plant/* 包括了问题和相关的参数，一个问题一个参数。默认可更改的配置文件在*MLC_tools/*目录中.
 - *Compatibility/* 一些脚本文件来检测MLC是否可以在MATLAB和Octave运行.
-- *save_runs/* 项目储存位置.
-原理和示例请见Example.md
+- *save_runs/* 项目储存位置.   
+
+原理和示例请见Example.md   
+如有bug与疑问请联系19s053048@stu.hit.edu.cn
