@@ -24,73 +24,69 @@ mlc=MLC('GMFM');
 
 运行*go.m* 文件来实现优化过程，单单只运行一次是能进行一代的优化。
 如果运行前是还并没有生成个体种群，会随机初始化第一代种群，
-之后的每一代通过
-To start the optimization process of the toy problem, run the *go.m* method.
-Run alone it process one generation of optimization.
-For the first iteration, it will initialize the data base with new individiduals.
-Then it will create the new generations by evolving the last population thanks to genetic operators.
+之后的每一代通过评价表现进行交叉、复制、变异的操作，进化生成新的下一代的种群个体，
+直到完成指定代数的进化收敛为止。
 
 ```
 mlc.go;
 ```
 
-To run several generations, precise it.
+如果一次性进化多代可以使用以下的命令。
 
 ```
-mlc.go(10); %To run 10 generations.
+mlc.go(10); %一次性进化10代
 ```
 
-## Post processing and analysis.
+## 进化结果及分析
 
-To visualize the best individual, use :
+如果想查看最佳个体的表现可以使用：
 
 ```
 mlc.best_individual;
 ```
 
-To visualize the learning process, use : 
+如果是要查看整个进化过程的学习曲线可以使用: 
 
 ```
 mlc.convergence;
 ```
 
 
-
-The current figure can be directly saved in save_runs/NameOfMyRun/Figures/ thanks to the following command:
+如果想保存图片的话可以直接使用如下命令结果将会被保存在save_runs/NameOfMyRun/Figures/路径中 :
 ```
 mlc.print('NameOfMyFigure');
-mlc.print('NameOfMyFigure',1); % to overwrite an existing figure
+mlc.print('NameOfMyFigure',1); % 对已经存在图片重新保存
 ```
-### Useful parameters
+### 简单参数的更改
 
 ```
-mlc.parameters.name = 'NameOfMyRun'; % This is the used to save;
+mlc.parameters.name = 'NameOfMyRun'; % 保存名称;
 mlc.parameters.Elitism = 1;
 mlc.parameters.CrossoverProb = 0.3;
 mlc.parameters.MutationProb = 0.4;
 mlc.parameters.ReplicationProb = 0.7;
-mlc.parameters.PopulationSize = 50; % Size of the population
+mlc.parameters.PopulationSize = 50; % 种群的大小
 
 ```
 
-### Save/Load
+### 保存与加载
 
-One can save and load one run.
-/!\ When loading, the current mlc object will be overwritten, be careful!
+我们可以对现有的MLC项目进行保存.
+/!\请注意在MATLAB中对于文件的加载会导致现有MLC面板的丢失，请保存现有面板之后再进行加载!
 
 ```
 mlc.save_matlab;
 mlc.load_matlab('NameOfMyRun');
 ```
 
-### Content
-The main folder should contain the following folders and files:
+### 目录结构
+主要包括以下目录及结构:
 - *README.md*
-- *Initialization.m*, *Restart.m*, to initialize and restart the toy problem.
-- *@MLC/*, *@MLCind/*, *@MLCpop/*, *@MLCtable/* contains the object definition files for the MLC algorithm.
-- *MLC_tools/* contains functions and scripts that are not methods used by the MLC class objects.
-- *ODE_Solvers/* contains other functions such ODE solvers
-- *Plant/* contains all the problems and associated parameters. One folder for each problem. Default parameters are in *MLC_tools/*.
-- *Compatibility/* contains functions and scripts for MATLAB/Octave compatibility.
-- *Control_laws/* contains functions and scripts to be used for experiments.
-- *save_runs/* contains the savings.
+- *README-en.md*
+- *Initialization.m*, *Restart.m*, 初始化和重新启动项目.
+- *@MLC/*, *@MLCind/*, *@MLCpop/*, *@MLCtable/* 包括了主要的对于使用MLC所封装的类.
+- *MLC_tools/* 包括了连接其他MLC项目一些脚本工具的文件.
+- *ODE_Solvers/* 包含了一些求解微分方程的求解器.
+- *Plant/* 包括了问题和相关的参数，一个问题一个参数。默认可更改的配置文件在*MLC_tools/*目录中.
+- *Compatibility/* 一些脚本文件来检测MLC是否可以在MATLAB和Octave运行.
+- *save_runs/* 项目储存位置.
