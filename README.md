@@ -2,12 +2,12 @@
 灵感启发自达尔文优胜劣汰的进化算法，采用线性遗传编程技术（LGP）解决无控制模型的控制优化问题。
 
 
-### 版本可行性
+### 1.版本可行性
 针对于Octave，和Matlab设计了两个版本，可以支持在不同的系统中运行Linux/Windows，如果需要在Linux下运行，可能会添加一些shell脚本。
 如果在Windows运行请添加文件到指定的工作区。不同运行器下的完整文件可见 *Compatibility/* 文件夹。
 
 
-### 初始化并运行
+### 2.初始化并运行
 初始化：在主文件目录下运行 Initialization.m 来添加可执行文件的路径和加载不同层次的类对象。
 
 ```
@@ -37,7 +37,7 @@ mlc.go;
 mlc.go(10); %一次性进化10代
 ```
 
-### 进化结果及分析
+### 3.进化结果及分析
 
 如果想查看最佳个体的表现可以使用：
 
@@ -57,7 +57,7 @@ mlc.convergence;
 mlc.print('NameOfMyFigure');
 mlc.print('NameOfMyFigure',1); % 对已经存在图片重新保存
 ```
-### 简单参数的更改
+### 4.简单参数的更改
 
 ```
 mlc.parameters.name = 'NameOfMyRun'; % 保存名称;
@@ -69,7 +69,7 @@ mlc.parameters.PopulationSize = 50; % 种群的大小
 
 ```
 
-### 保存与加载
+### 5.保存与加载
 
 我们可以对现有的MLC项目进行保存.
 /!\请注意在MATLAB中对于文件的加载会导致现有MLC面板的丢失，请保存现有面板之后再进行加载!
@@ -79,7 +79,7 @@ mlc.save_matlab;
 mlc.load_matlab('NameOfMyRun');
 ```
 
-### 目录结构
+### 6.目录结构
 主要包括以下目录及结构:
 - *README.md*
 - *README-en.md*
